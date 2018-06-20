@@ -6,6 +6,11 @@ const app = express();
 
 // App Setup
 
+// For logging incoming requests
+app.use(morgan('combined'));
+
+// To parse requests into JSON
+app.use(bodyParser.json({type: '*/*'}));
 
 
 // Server Setup
