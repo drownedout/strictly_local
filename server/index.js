@@ -3,6 +3,7 @@ const http = require('http');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const app = express();
+const router = require('./routes/index');
 
 // App Setup
 
@@ -12,6 +13,7 @@ app.use(morgan('combined'));
 // To parse requests into JSON
 app.use(bodyParser.json({type: '*/*'}));
 
+router(app);
 
 // Server Setup
 
