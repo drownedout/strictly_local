@@ -4,6 +4,18 @@ exports.signup = function(req,res,next){
 	const email = req.body.email;
 	const password = req.body.password;
 
+	/** 
+
+		Todo
+			- Add further checks for email, password
+		
+	**/
+
+	// Checks existence of password and email
+	if (!email || !password){
+		return res.status(422).send({ error: 'Email and Password required' })
+	}
+
 	// See if a user with a given email exists
 	User.findOne({ email }, function(err, existingUser){
 		// Error handling
@@ -11,7 +23,7 @@ exports.signup = function(req,res,next){
 
 		// If a user with email does exist, return an error
 		if (existingUser){
-			res.status(422).send({ error: 'Email already exists'});
+			res.status(422).send({ error: 'Email already exists'} );
 		}
 
 		// If a user with email does not exist, create and save user record
@@ -25,7 +37,7 @@ exports.signup = function(req,res,next){
 			if (err){ return next(err); }
 
 			// Respond to request indicating the user was created
-			res.json({ success: 'User has been saved'});
+			res.json({ success: 'User has been saved' });
 		});
 	});
 }
