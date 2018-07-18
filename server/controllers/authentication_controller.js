@@ -53,3 +53,10 @@ exports.signup = function(req,res,next){
 		});
 	});
 }
+
+exports.login = function(req, res, next){
+	// User has already had their email and password authenticated
+	// They just need to receive a token
+
+	res.send({ token: userToken(req.user) });
+}
