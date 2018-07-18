@@ -5,7 +5,6 @@ const keys = require('../config/keys');
 
 // Generates JWT for user
 function userToken(user){
-
 	const timeStamp = new Date().getTime();
 
 	// sub = Subject of token, user.id = specific user id
