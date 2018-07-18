@@ -30,6 +30,16 @@ UserSchema.pre('save', function(next){
 	});
 });
 
+// Instance method
+UserSchema.methods.comparePassword = function(userPassword, callback){
+	bcrypt.compare(userPassword, this.password, function(err, isMatch){
+		if (err){ return callback(err); }
+
+		// If values are equal, isMatch will return true
+		callback(null, isMatch);
+	});
+}
+
 // Create User Model Class
 const User = mongoose.model('user', UserSchema);
 
