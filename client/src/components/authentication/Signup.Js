@@ -8,7 +8,9 @@ class SignUp extends Component {
 
 	// Arrow function so that we don't need to bind
 	onSubmit = (formProps) => {
-		this.props.signup(formProps);
+		this.props.signup(formProps, () => {
+			this.props.history.push('/')
+		});
 	};
 
 	render(){
