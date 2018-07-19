@@ -5,6 +5,7 @@ const http = require('http');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const keys = require('./config/keys');
 
 const app = express();
@@ -32,6 +33,9 @@ mongoose.connect(keys.mongoDev, (error) => {
 // For logging incoming requests
 app.use(morgan('combined'));
 
+// CORS
+app.use(cors());
+
 // To parse requests into JSON
 app.use(bodyParser.json({type: '*/*'}));
 
@@ -40,7 +44,7 @@ router(app);
 // Server Setup
 
 // If port is already defined, use that - otherwise, use port 3000
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 4000;
 
 const server = http.createServer(app);
 
