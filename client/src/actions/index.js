@@ -20,6 +20,25 @@ export const signup = (formProps, callback) => async dispatch => {
 	}
 };
 
+export const login = (formProps, callback) => async dispatch => {
+	try {
+		const response = await axios.post(
+			'http://localhost:4000/login', 
+			formProps
+		);
+
+		dispatch({ type: AUTH_USER, payload: response.data.token });
+
+		// Store token into browser's local storage
+		localStorage.setItem('token', response.data.token);
+
+		// Redirect function
+		callback();
+	} catch (e) {
+		dispatch({ type: AUTH_ERROR, payload: 'Invalid login' });
+	}
+};
+
 export const logout = () => {
 	localStorage.removeItem('token');
 
