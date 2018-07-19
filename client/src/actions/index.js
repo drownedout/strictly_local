@@ -9,6 +9,11 @@ export const signup = (formProps, callback) => async dispatch => {
 		);
 
 		dispatch({ type: AUTH_USER, payload: response.data.token });
+
+		// Store token into browser's local storage
+		localStorage.setItem('token', response.data.token);
+
+		// Redirect function
 		callback();
 	} catch (e) {
 		dispatch({ type: AUTH_ERROR, payload: 'Email in use' });
