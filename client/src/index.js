@@ -9,7 +9,7 @@ import App from './components/App';
 import reducers from './reducers';
 
 ReactDOM.render(
-	<Provider store={createStore(reducers, {})}>
+	<Provider store={ createStore(reducers, {}) }>
 		<BrowserRouter>
 			<App />
 		</BrowserRouter>
