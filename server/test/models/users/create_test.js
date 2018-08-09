@@ -5,7 +5,10 @@ describe('Creating a user', () => {
 
 	it('can be saved to the database', (done) => {
 
-		const newUser = new User({ 
+		const newUser = new User({
+			username: 'MrTest',
+			firstName: 'Test',
+			lastName: 'Testing',
 			email: 'test@test.com',
 			password: 'password',
 		});
