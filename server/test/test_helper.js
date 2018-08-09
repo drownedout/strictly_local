@@ -21,9 +21,5 @@ before((done) => {
 
 // Clears test database before each test.
 beforeEach((done) => {
-	const { users } = mongoose.connection.collections;
-	users.drop(() => {
-		// Ready to run next test.
-		done();
-	});
+	mongoose.connection.db.dropDatabase(done);
 });
