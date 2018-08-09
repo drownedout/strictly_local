@@ -12,4 +12,13 @@ module.exports = {
 			//must do it manually
 	},
 
+	/** Index **/
+	index(req, res, next){
+		City.find()
+			.then(cities => res.send(cities))
+			.catch(next);
+	}
+
+	
+
 }

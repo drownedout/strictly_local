@@ -24,7 +24,7 @@ mongoose.connect(keys.mongoDev, (error) => {
 		console.error('There was an error with Mongo DB');
 		throw error;
 	} else {
-		console.log('MongoDB has connected to the server');
+		console.log('MongoDB has connected to ' + keys.mongoDev);
 	}
 });
 

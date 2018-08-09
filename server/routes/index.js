@@ -15,4 +15,5 @@ module.exports = function(app){
 	app.post('/login',requireLogin, Authentication.login);
 	app.post('/signup', Authentication.signup);
 	app.post('/cities', CitiesController.create);
+	app.get('/cities', CitiesController.index);
 }
