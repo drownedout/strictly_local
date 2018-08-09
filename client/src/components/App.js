@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import Navbar from './shared/Navbar';
+import Login from './authentication/Login';
+import Signup from './authentication/Signup';
 
-class App extends Component {
-	render(){
-		return (
-			<div>
-				<Navbar />
-				<h1>Hello</h1>
-			</div>
-		)
-	}
+function App({ children }) {
+	return (
+		<div>
+			<Navbar />
+			{children}
+		</div>
+	);
 }
 
 export default App;

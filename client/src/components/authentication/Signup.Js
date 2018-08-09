@@ -7,9 +7,9 @@ import * as actions from '../../actions';
 class SignUp extends Component {
 
 	// Arrow function so that we don't need to bind
-	onSubmit = (formProps) => {
+	onSubmit = formProps => {
 		this.props.signup(formProps, () => {
-			this.props.history.push('/')
+			// this.props.history.push('/')
 		});
 	};
 
