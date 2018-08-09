@@ -15,6 +15,7 @@ const router = require('./routes/index');
 	
 	Todo: 
 		Possibly refactor MongoDB keys
+		Update cors
 
 **/
 
@@ -28,7 +29,7 @@ mongoose.connect(keys.mongoDev, (error) => {
 	}
 });
 
-// App Setup
+/** App Setup **/
 
 // For logging incoming requests
 app.use(morgan('combined'));
