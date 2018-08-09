@@ -80,4 +80,22 @@ describe('cities controller', () => {
 		});
 	});
 
+	it('DELETE to /cities/:id deletes a city', (done) => {
+		const newCity = new City(
+			{ 	name: 'CityOne', 
+				description: 'This is city one'
+		});
+
+		newCity.save().then(() => {
+			request(app)
+				.delete(`/cities/${newCity._id}`)
+				.end(() => {
+					City.findOne({ name: 'CityOne'})
+					.then(() => {
+						assert(newCity === null);
+					});
+					done();
+				});
+		});
+	});
 });

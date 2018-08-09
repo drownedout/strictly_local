@@ -14,8 +14,11 @@ module.exports = function(app){
 	});
 	app.post('/login',requireLogin, Authentication.login);
 	app.post('/signup', Authentication.signup);
+
+	/** Cities **/
 	app.post('/cities', CitiesController.create);
 	app.get('/cities', CitiesController.index);
 	app.put('/cities/:id', CitiesController.update);
 	app.get('/cities/:id', CitiesController.show);
+	app.delete('/cities/:id', CitiesController.destroy);
 }

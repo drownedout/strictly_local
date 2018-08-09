@@ -2,24 +2,23 @@ const City = require('../models/City');
 
 module.exports = {
 
-	/** Create **/
+	/** CREATE **/
 	create(req, res, next){
 		const cityProps = req.body; 
 
 		City.create(cityProps)
 			.then(city => res.send(city))
-			.catch(next); //Calling next moves the to next middleware in chain,
-			//must do it manually
+			.catch(next);
 	},
 
-	/** Index **/
+	/** INDEX **/
 	index(req, res, next){
 		City.find()
 			.then(cities => res.send(cities))
 			.catch(next);
 	},
 
-	/** Update **/
+	/** UPDATE **/
 	update(req, res, next){
 		const cityID = req.params.id;
 		const cityProps = req.body;
@@ -37,5 +36,15 @@ module.exports = {
 		City.findById({ _id: cityID })
 			.then(city => res.send(city))
 			.catch(next);
+	},
+
+	/** DESTROY **/
+	destroy(req, res, next){
+		const cityID = req.params.id;
+
+		City.findByIdAndRemove({ _id: cityID })
+			.then(city => res.status(204).send(city))
+			.catch(next);
+
 	}
 }
