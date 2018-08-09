@@ -4,8 +4,43 @@ const bcrypt = require('bcrypt-nodejs');
 
 // Define User Model
 const UserSchema = new Schema({
-	email: { type: String, unique: true, lowercase: true },
-	password: String,
+	username: {
+		type: String,
+		validate: {
+			validator: (username) => username.length > 3 && username.length < 14,
+			message: 'Username must be between 3 and 14 characters'
+		},
+		required: [true, 'A username is required'],
+		unique: true,
+		lowercase: true
+	},
+	firstName: {
+		type: String,
+		validate: {
+			validator: (firstName) => firstName.length > 2 && firstName.length < 20,
+			message: 'First name must between 2 and 20 characters'
+		},
+		required: [true, 'You must enter your first name']
+	},
+	lastName: {
+		type: String,
+		validate: {
+			validator: (lastName) => lastName.length > 2 && lastName.length < 20,
+			message: 'Last name must between 2 and 20 characters'
+		},
+		required: [true, 'You must enter your last name']
+	},
+	email: { 
+		type: String,
+		required: [true, 'You must provide an email'],
+		unique: [true, 'That email is already in use'],
+		lowercase: true,
+		match: [/.+\@.+\..+/, 'You must provide a valid email'] 
+	},
+	password: {
+		type: String,
+		required: [true, 'You must provide a password']
+	}
 });
 
 // On Save Hook, encrypt password
