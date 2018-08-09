@@ -13,6 +13,9 @@ function userToken(user){
 }
 
 exports.signup = function(req,res,next){
+	const username = req.body.username;
+	const firstName = req.body.firstName;
+	const lastName = req.body.lastName;
 	const email = req.body.email;
 	const password = req.body.password;
 
@@ -40,6 +43,9 @@ exports.signup = function(req,res,next){
 
 		// If a user with email does not exist, create and save user record
 		const user = new User({
+			username,
+			firstName,
+			lastName,
 			email,
 			password
 		});
