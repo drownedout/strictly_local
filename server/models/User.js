@@ -7,8 +7,8 @@ const UserSchema = new Schema({
 	username: {
 		type: String,
 		validate: {
-			validator: (username) => username.length > 3 && username.length < 14,
-			message: 'Username must be between 3 and 14 characters'
+			validator: (username) => username.length > 3 && username.length <= 14,
+			message: 'Username must be between 4 and 14 characters'
 		},
 		required: [true, 'A username is required'],
 		unique: true,
@@ -17,7 +17,7 @@ const UserSchema = new Schema({
 	firstName: {
 		type: String,
 		validate: {
-			validator: (firstName) => firstName.length > 2 && firstName.length < 20,
+			validator: (firstName) => firstName.length >= 2 && firstName.length <= 20,
 			message: 'First name must between 2 and 20 characters'
 		},
 		required: [true, 'You must enter your first name']
@@ -25,7 +25,7 @@ const UserSchema = new Schema({
 	lastName: {
 		type: String,
 		validate: {
-			validator: (lastName) => lastName.length > 2 && lastName.length < 20,
+			validator: (lastName) => lastName.length >= 2 && lastName.length <= 20,
 			message: 'Last name must between 2 and 20 characters'
 		},
 		required: [true, 'You must enter your last name']
@@ -39,6 +39,10 @@ const UserSchema = new Schema({
 	},
 	password: {
 		type: String,
+		validate: {
+			validator: (password) => password.length >= 5 && password.length <= 20,
+			message: 'Your password must be between 5 and 20 characters'
+		},
 		required: [true, 'You must provide a password']
 	}
 });
