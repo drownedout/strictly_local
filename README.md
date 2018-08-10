@@ -59,3 +59,10 @@ ___
 - Axios
 - Redux Form
 - Redux Thunk
+
+
+## Todo
+
+- Add profile picture functionaility
+- CRUD for cities
+- Additional fields for City model
