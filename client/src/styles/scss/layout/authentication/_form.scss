@@ -1,0 +1,39 @@
+.form-container {
+	margin: 4rem auto;
+	width: 50%;
+	position: relative;
+	.form {
+		h1 {
+			color: $title;
+		}
+		padding: 1rem 3rem 3rem;
+		@include default-border();
+		@include box-shadow(.15);
+		border-top: 5px solid $blue;
+		fieldset{
+			border: none;
+			margin: 0 auto;
+			padding: 0;
+			label, input {
+				display: block;
+				margin: 1rem 0;
+				width: 90%;
+			}
+			label {
+				font-weight: 700;
+				color: $title;
+			}
+			input {
+				padding: .5rem;
+				outline-color: $purple;
+				outline-width: thin;
+			}
+		}
+		.btn {
+			margin-top: 2rem;
+		}
+	}
+	.form-error {
+		color: $red;
+	}
+}

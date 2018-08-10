@@ -18,3 +18,15 @@
 	-moz-box-shadow: 6px 14px 100px -29px rgba(0,0,0,$opacity);
 	box-shadow: 6px 14px 100px -29px rgba(0,0,0,$opacity);
 }
+
+@mixin default-border(){
+	border: 1px solid darken($white, 5%);
+}
+
+@mixin base-transition(){
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}

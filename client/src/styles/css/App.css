@@ -143,6 +143,44 @@ table {
 td, th {
   padding: 0; }
 
+.btn {
+  display: inline-block;
+  border-radius: 100px;
+  text-align: center;
+  box-sizing: border-box;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 1rem 3rem;
+  letter-spacing: .15rem;
+  margin-right: 15px;
+  font-size: .8rem;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  -webkit-box-shadow: 6px 14px 100px -29px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 6px 14px 100px -29px rgba(0, 0, 0, 0.15);
+  box-shadow: 6px 14px 100px -29px rgba(0, 0, 0, 0.15); }
+  @media only screen and (max-width: 800px) {
+    .btn {
+      width: 100%;
+      margin: 1rem auto; } }
+  .btn.primary {
+    color: #fff;
+    background-color: #5533ff;
+    border: 1px solid #401aff; }
+    .btn.primary:hover {
+      background-color: #6a4dff; }
+  .btn.secondary {
+    color: #fff;
+    background-color: transparent;
+    border: 1px solid #fff; }
+    .btn.secondary:hover {
+      color: #f2f2f2; }
+  .btn:hover {
+    transform: translateY(-1px); }
+
 .navbar {
   padding: 2rem 0;
   display: -webkit-box;
@@ -184,5 +222,38 @@ td, th {
   color: #16171a; }
 .city-item-information .city-description {
   color: #828c99; }
+
+.form-container {
+  margin: 4rem auto;
+  width: 50%;
+  position: relative; }
+  .form-container .form {
+    padding: 1rem 3rem 3rem;
+    border: 1px solid #f2f2f2;
+    -webkit-box-shadow: 6px 14px 100px -29px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 6px 14px 100px -29px rgba(0, 0, 0, 0.15);
+    box-shadow: 6px 14px 100px -29px rgba(0, 0, 0, 0.15);
+    border-top: 5px solid #5533ff; }
+    .form-container .form h1 {
+      color: #16171a; }
+    .form-container .form fieldset {
+      border: none;
+      margin: 0 auto;
+      padding: 0; }
+      .form-container .form fieldset label, .form-container .form fieldset input {
+        display: block;
+        margin: 1rem 0;
+        width: 90%; }
+      .form-container .form fieldset label {
+        font-weight: 700;
+        color: #16171a; }
+      .form-container .form fieldset input {
+        padding: .5rem;
+        outline-color: #7A2DFB;
+        outline-width: thin; }
+    .form-container .form .btn {
+      margin-top: 2rem; }
+  .form-container .form-error {
+    color: #E0227A; }
 
 /*# sourceMappingURL=App.css.map */

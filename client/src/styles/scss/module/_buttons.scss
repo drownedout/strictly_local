@@ -1,0 +1,37 @@
+.btn {
+	display: inline-block;
+	border-radius: 100px;
+	text-align: center;
+	box-sizing: border-box;
+	cursor: pointer;
+	text-decoration: none;
+	padding: 1rem 3rem;
+	letter-spacing: .15rem;
+	margin-right: 15px;
+	font-size: .8rem;
+	@media only screen and (max-width:800px) {
+		width: 100%;
+		margin: 1rem auto;
+	}
+	@include base-transition();
+	@include box-shadow(.15);
+	&.primary {
+		color: $white;
+		background-color: $blue;
+		border: 1px solid darken($blue, 5%);
+		&:hover {
+			background-color: lighten($blue, 5%);
+		}
+	}
+	&.secondary {
+		color: $white;
+		background-color: transparent;
+		border: 1px solid $white;
+		&:hover {
+			color: darken($white, 5%);
+		}
+	}
+	&:hover {
+		transform: translateY(-1px);
+	}
+}
