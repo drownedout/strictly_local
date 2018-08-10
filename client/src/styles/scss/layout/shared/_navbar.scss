@@ -1,0 +1,15 @@
+.navbar {
+	padding: 2rem 0;
+	@include flex-container($around);
+	.nav-wrapper {
+		a {
+			display: inline-block;
+			margin: 0 1rem;
+			color: $base;
+			text-decoration: none;
+			&:hover {
+				opacity: .7;
+			}
+		}
+	}
+}
