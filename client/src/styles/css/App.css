@@ -165,4 +165,24 @@ td, th {
     .navbar .nav-wrapper a:hover {
       opacity: .7; }
 
+.city-list-container {
+  width: 90%;
+  margin: 0 auto; }
+  .city-list-container .city-list {
+    list-style: none;
+    padding: 0;
+    margin: 0; }
+    .city-list-container .city-list .city-item {
+      margin: 2rem 0;
+      padding: 1rem;
+      border: 1px solid #f2f2f2;
+      -webkit-box-shadow: 6px 14px 100px -29px rgba(0, 0, 0, 0.15);
+      -moz-box-shadow: 6px 14px 100px -29px rgba(0, 0, 0, 0.15);
+      box-shadow: 6px 14px 100px -29px rgba(0, 0, 0, 0.15); }
+
+.city-item-information .city-name {
+  color: #16171a; }
+.city-item-information .city-description {
+  color: #828c99; }
+
 /*# sourceMappingURL=App.css.map */

@@ -12,3 +12,9 @@
 	width: 90%;
 	margin: 0 auto;
 }
+
+@mixin box-shadow($opacity){
+	-webkit-box-shadow: 6px 14px 100px -29px rgba(0,0,0,$opacity);
+	-moz-box-shadow: 6px 14px 100px -29px rgba(0,0,0,$opacity);
+	box-shadow: 6px 14px 100px -29px rgba(0,0,0,$opacity);
+}

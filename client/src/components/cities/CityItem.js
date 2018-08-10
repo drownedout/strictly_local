@@ -5,15 +5,15 @@ class CityItem extends Component {
 	render(){
 		const { city } = this.props;
 		return (
-			<div>
-				<p>{city.name}</p>
-				<p>{city.description}</p>
+			<div className="city-item-information">
+				<h3 className="city-name">{city.name}</h3>
+				<p className="city-description">{city.description}</p>
 	        </div>
         )
 	}
 }
 
-function mapStateToProps({ }, {id, city}){
+function mapStateToProps(state, {id, city}){
 	return {
 		city
 	}

@@ -18,11 +18,11 @@ class CityList extends Component {
 				<LoadingBar />
 				{loading === true
 		            ? null
-		            : <div>
+		            : <div className="city-list-container">
 		              	<h1>Cities</h1>
-		              	<ul>
+		              	<ul className="city-list">
 		              	{Object.values(cities).map((city) => (
-				            <li key={city._id}>
+				            <li key={city._id} className="city-item">
 				              <CityItem id={city._id} city={city}/>
 				            </li>
 				        ))}
