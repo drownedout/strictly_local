@@ -9,6 +9,7 @@ import App from './components/App';
 import Signup from './components/authentication/Signup';
 import Login from './components/authentication/Login';
 import Logout from './components/authentication/Logout';
+import CityList from './components/cities/CityList';
 
 import reducers from './reducers';
 
@@ -24,7 +25,8 @@ ReactDOM.render(
 	<Provider store={ store }>
 		<BrowserRouter>
 			<App>
-				<Route path="/" exact component={Signup} />
+				<Route path="/cities" exact component={CityList} />
+				<Route path="/signup" exact component={Signup} />
 				<Route path="/login" exact component={Login} />
 				<Route path="/logout" exact component={Logout} />
 			</App>
