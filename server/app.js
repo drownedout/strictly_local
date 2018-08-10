@@ -5,6 +5,8 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const multer  = require('multer');
+const upload = multer({ dest: 'uploads/' });
 const keys = require('./config/keys');
 
 const app = express();
