@@ -44,7 +44,13 @@ const UserSchema = new Schema({
 			message: 'Your password must be between 5 and 20 characters'
 		},
 		required: [true, 'You must provide a password']
+	},
+	profilePicture: {
+		date: Buffer,
+		type: String
 	}
+}, {
+	timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }
 });
 
 // On Save Hook, encrypt password
