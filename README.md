@@ -16,6 +16,7 @@
 - Body Parser
 - bcrypt
 - JWT-Simple
+- Multer
 
 
 ### Config
