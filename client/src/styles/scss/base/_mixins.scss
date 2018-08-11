@@ -30,3 +30,17 @@
 	-ms-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out;
 }
+
+@mixin underline($color){
+	&:after{
+		display: block;
+		background-color: $color;
+		width: 120px;
+		height: 5px;
+		content: '\0020';
+		position: absolute;
+		left: 50%;
+		bottom: 0;
+		margin-left: -60px;
+	}
+}

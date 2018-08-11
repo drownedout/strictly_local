@@ -1,0 +1,16 @@
+.home {
+	position: relative;
+	.home-banner {
+		background-color: $base;
+		min-height: 400px;
+		z-index: -1;
+		margin: 0;
+		padding: 0;
+	}
+	.home-welcome {
+		font-weight: 300;
+		text-align: center;
+		padding: 1.5rem;
+		@include underline($red);
+	}
+}

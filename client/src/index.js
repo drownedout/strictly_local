@@ -11,6 +11,7 @@ import Login from './components/authentication/Login';
 import Logout from './components/authentication/Logout';
 import CityList from './components/cities/CityList';
 import CityPage from './components/cities/CityPage';
+import Home from './components/static/Home.js'
 
 import reducers from './reducers';
 
@@ -26,6 +27,7 @@ ReactDOM.render(
 	<Provider store={ store }>
 		<BrowserRouter>
 			<App>
+				<Route path="/" exact component={Home} />
 				<Route path="/cities" exact component={CityList} />
 				<Route path='/cities/:id' exact component={CityPage} />
 				<Route path="/signup" exact component={Signup} />

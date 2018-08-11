@@ -203,6 +203,29 @@ td, th {
     .navbar .nav-wrapper a:hover {
       opacity: .7; }
 
+.home {
+  position: relative; }
+  .home .home-banner {
+    background-color: #141311;
+    min-height: 400px;
+    z-index: -1;
+    margin: 0;
+    padding: 0; }
+  .home .home-welcome {
+    font-weight: 300;
+    text-align: center;
+    padding: 1.5rem; }
+    .home .home-welcome:after {
+      display: block;
+      background-color: #E0227A;
+      width: 120px;
+      height: 5px;
+      content: '\0020';
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      margin-left: -60px; }
+
 .city-list-container {
   width: 90%;
   margin: 0 auto; }
