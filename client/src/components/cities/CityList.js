@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { receiveCities } from '../../actions/cities';
+import _ from 'lodash';
 import LoadingBar from 'react-redux-loading';
 import CityItem from './CityItem';
 
@@ -21,7 +22,7 @@ class CityList extends Component {
 		            : <div className="city-list-container">
 		              	<h1>Cities</h1>
 		              	<ul className="city-list">
-		              	{Object.values(cities).map((city) => (
+		              	{_.map(cities, city => (
 				            <li key={city._id} className="city-item">
 				              <CityItem id={city._id} city={city}/>
 				            </li>
