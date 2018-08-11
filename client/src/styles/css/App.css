@@ -241,10 +241,95 @@ td, th {
       -moz-box-shadow: 6px 14px 100px -29px rgba(0, 0, 0, 0.15);
       box-shadow: 6px 14px 100px -29px rgba(0, 0, 0, 0.15); }
 
-.city-item-information .city-name {
-  color: #16171a; }
-.city-item-information .city-description {
-  color: #828c99; }
+.city-item-information {
+  padding: 1.5rem 0; }
+  .city-item-information .city-name, .city-item-information .city-description {
+    margin: 0.25rem 0; }
+  .city-item-information .city-name {
+    font-weight: 700; }
+    .city-item-information .city-name a {
+      text-decoration: none;
+      color: #5533ff; }
+  .city-item-information .city-description {
+    color: #828c99; }
+
+.city-page .city-banner {
+  background: url("https://wallpapers.pub/web/wallpapers/united-states-new-jersey-union-city/4096x2160.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 80vh;
+  min-height: 500px;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  display: table;
+  position: relative;
+  -webkit-box-shadow: inset 10px 10px 229px -17px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: inset 10px 10px 229px -17px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 10px 10px 229px -17px rgba(0, 0, 0, 0.5);
+  margin-bottom: 3rem; }
+  .city-page .city-banner:after {
+    display: block;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: .7;
+    z-index: 3;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0; }
+  .city-page .city-banner .city-banner-content {
+    position: relative;
+    z-index: 4;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle; }
+    .city-page .city-banner .city-banner-content .city-name, .city-page .city-banner .city-banner-content .city-state {
+      color: #fff;
+      margin: 1rem 0; }
+    .city-page .city-banner .city-banner-content .city-name {
+      font-size: 4rem; }
+    .city-page .city-banner .city-banner-content .city-state {
+      font-weight: 300; }
+.city-page .city-page-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex: 1;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: space-around;
+  -ms-flex-pack: space-around;
+  justify-content: space-around;
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto; }
+  .city-page .city-page-container .city-detail-main {
+    flex-basis: 60%; }
+    .city-page .city-page-container .city-detail-main .city-about-title {
+      font-size: 2rem;
+      color: #16171a;
+      margin: 0 0 1rem 0;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #16171a; }
+    .city-page .city-page-container .city-detail-main .city-description {
+      color: #828c99;
+      line-height: 1.75rem;
+      font-weight: 300; }
+  .city-page .city-page-container .city-detail-aside {
+    flex-basis: 30%; }
+    .city-page .city-page-container .city-detail-aside .map-thumbnail, .city-page .city-page-container .city-detail-aside .city-meta {
+      width: 100%;
+      height: 200px;
+      background-color: #ccc;
+      margin-bottom: 2rem;
+      -webkit-box-shadow: 6px 14px 100px -29px rgba(0, 0, 0, 0.55);
+      -moz-box-shadow: 6px 14px 100px -29px rgba(0, 0, 0, 0.55);
+      box-shadow: 6px 14px 100px -29px rgba(0, 0, 0, 0.55); }
 
 .form-container {
   margin: 4rem auto;

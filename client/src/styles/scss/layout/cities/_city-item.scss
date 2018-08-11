@@ -1,6 +1,14 @@
 .city-item-information {
+	padding: 1.5rem 0;
+	.city-name, .city-description {
+		margin: 0.25rem 0;
+	}
 	.city-name {
-		color: $title;
+		font-weight: 700;
+		a {
+			text-decoration: none;
+			color: $blue;
+		}
 	}
 	.city-description {
 		color: $text;
