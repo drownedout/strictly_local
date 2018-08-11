@@ -11,11 +11,16 @@ class CityPage extends Component {
 
 	render(){
 		const { city } = this.props;
+
+		if(!city) {
+			return <div> Loading... </div>
+		}
+
 		return (
 			<div className="city-page">
 				<div className="city-page-container">
-					<h3 className="city-name">Name</h3>
-					<p className="city-description"></p>
+					<h3 className="city-name">{city.name}</h3>
+					<p className="city-description">{city.description}</p>
 				</div>
 	        </div>
         )
@@ -29,7 +34,8 @@ function mapStateToProps({ cities }, props) {
 	console.log(cities);
 	return {
 		id,
-		city
+		city,
+		loading: city === null
 	}
 }
 
