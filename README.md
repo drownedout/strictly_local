@@ -66,3 +66,4 @@ ___
 - Add profile picture functionaility
 - CRUD for cities
 - Additional fields for City model
+- 

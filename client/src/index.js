@@ -4,6 +4,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import reduxThunk from 'redux-thunk';
+import middleware from './middleware';
 
 import App from './components/App';
 import Signup from './components/authentication/Signup';
@@ -20,7 +21,7 @@ const store = createStore(
 	{
 		authentication: { authenticated: localStorage.getItem('token') }
 	},
-	applyMiddleware(reduxThunk)
+	middleware
 );
 
 ReactDOM.render(
