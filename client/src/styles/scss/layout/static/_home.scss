@@ -10,14 +10,43 @@
 			}
 			.home-title {
 				font-size: 5rem;
+				@media only screen and (max-width: 550px) {
+					font-size: 4rem;
+				}
+				@media only screen and (max-width: 550px) {
+					font-size: 3rem;
+				}
+				@media only screen and (max-width: 350px) {
+					font-size: 2.5rem;
+				}
 			}
 			.home-subtitle {
 				letter-spacing: .1rem;
 				font-size: 1.5rem;
 				font-weight: 300;
+				padding-left: .1rem;
+				@media only screen and (max-width: 550px) {
+					font-size: 1.25rem;
+				}
+				@media only screen and (max-width: 550px) {
+					font-size: 1rem;
+				}
 			}
 			.home-button-row {
 				margin-top: 3rem;
+				.btn {
+					@media only screen and (max-width: 800px) {
+						display: block;
+						width: 40%;
+						margin: 2rem auto;
+					}
+					@media only screen and (max-width: 450px) {
+						width: 50%;
+					}
+					@media only screen and (max-width: 325px) {
+						width: 60%;
+					}
+				}
 			}
 		}
 	}

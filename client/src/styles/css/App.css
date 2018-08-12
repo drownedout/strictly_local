@@ -245,12 +245,39 @@ td, th {
         margin: 1rem 0; }
       .home .home-banner .home-banner-content .home-title {
         font-size: 5rem; }
+        @media only screen and (max-width: 550px) {
+          .home .home-banner .home-banner-content .home-title {
+            font-size: 4rem; } }
+        @media only screen and (max-width: 550px) {
+          .home .home-banner .home-banner-content .home-title {
+            font-size: 3rem; } }
+        @media only screen and (max-width: 350px) {
+          .home .home-banner .home-banner-content .home-title {
+            font-size: 2.5rem; } }
       .home .home-banner .home-banner-content .home-subtitle {
         letter-spacing: .1rem;
         font-size: 1.5rem;
-        font-weight: 300; }
+        font-weight: 300;
+        padding-left: .1rem; }
+        @media only screen and (max-width: 550px) {
+          .home .home-banner .home-banner-content .home-subtitle {
+            font-size: 1.25rem; } }
+        @media only screen and (max-width: 550px) {
+          .home .home-banner .home-banner-content .home-subtitle {
+            font-size: 1rem; } }
       .home .home-banner .home-banner-content .home-button-row {
         margin-top: 3rem; }
+        @media only screen and (max-width: 800px) {
+          .home .home-banner .home-banner-content .home-button-row .btn {
+            display: block;
+            width: 40%;
+            margin: 2rem auto; } }
+        @media only screen and (max-width: 450px) {
+          .home .home-banner .home-banner-content .home-button-row .btn {
+            width: 50%; } }
+        @media only screen and (max-width: 325px) {
+          .home .home-banner .home-banner-content .home-button-row .btn {
+            width: 60%; } }
   .home .home-welcome {
     font-weight: 300;
     text-align: center;
