@@ -1,16 +1,30 @@
 .home {
 	position: relative;
 	.home-banner {
-		background-color: $base;
-		min-height: 400px;
-		z-index: -1;
-		margin: 0;
-		padding: 0;
+		@include banner('https://wallpaper.wiki/wp-content/uploads/2017/04/wallpaper.wiki-Free-Travel-Backgrounds-Download-HD-PIC-WPD004681.jpg');
+		.home-banner-content {
+			@include banner-content();
+			.home-title, .home-subtitle {
+				color: $white;
+				margin: 1rem 0;
+			}
+			.home-title {
+				font-size: 5rem;
+			}
+			.home-subtitle {
+				letter-spacing: .1rem;
+				font-size: 1.5rem;
+				font-weight: 300;
+			}
+			.home-button-row {
+				margin-top: 3rem;
+			}
+		}
 	}
 	.home-welcome {
 		font-weight: 300;
 		text-align: center;
-		padding: 1.5rem;
+		padding-bottom: 1.5rem;
 		@include underline($red);
 	}
 }
