@@ -3,26 +3,28 @@ import { reduxForm, Field } from 'redux-form';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 
 class Login extends Component {
+	onSubmit = (formProps) => {
+		const { login, history } = this.props;
 
-	// Arrow function so that we don't need to bind
-	onSubmit = formProps => {
-		this.props.login(formProps, () => {
-			this.props.history.push('/');
+		login(formProps, () => {
+			history.push('/');
 		});
 	};
 
 	redirectUser() {
-		if (this.props.authenticated) {
-			this.props.history.push('/');
+		const { authenticated, history } = this.props;
+
+		if (authenticated) {
+			history.push('/');
 		}
 	}
 
-	render(){
+	render() {
 		// handleSubmit is provided by reduxForm
-		const { handleSubmit } = this.props;
+		const { handleSubmit, errorMessage } = this.props;
 
 		return (
 			<div className="form-container">
@@ -45,22 +47,24 @@ class Login extends Component {
 							component="input"
 						/>
 					</fieldset>
-					<div className="form-error">{this.props.errorMessage}</div>
-					<button className="btn primary">Login</button>
+					<div className="form-error">{errorMessage}</div>
+					<button type="submit" className="btn primary">Login</button>
 				</form>
 			</div>
 		);
 	}
 }
 
-function mapStateToProps(state){
-	return { 
-		errorMessage: state.authentication.errorMessage,
-		authenticated: state.authentication.authenticated
+function mapStateToProps({ authentication }) {
+	const { authenticated, errorMessage } = authentication;
+
+	return {
+		errorMessage,
+		authenticated,
 	};
 }
 
 export default compose(
 	connect(mapStateToProps, actions),
-	reduxForm({ form: 'login' })
+	reduxForm({ form: 'login' }),
 )(Login);

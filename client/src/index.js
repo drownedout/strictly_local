@@ -7,35 +7,35 @@ import reduxThunk from 'redux-thunk';
 import middleware from './middleware';
 
 import App from './components/App';
-import Signup from './components/authentication/Signup';
 import Login from './components/authentication/Login';
 import Logout from './components/authentication/Logout';
 import CityList from './components/cities/CityList';
 import CityPage from './components/cities/CityPage';
-import Home from './components/static/Home.js'
+import SignUp from './components/authentication/Signup';
+import Home from './components/static/Home';
 
 import reducers from './reducers';
 
 const store = createStore(
 	reducers,
 	{
-		authentication: { authenticated: localStorage.getItem('token') }
+		authentication: { authenticated: localStorage.getItem('token') },
 	},
-	middleware
+	middleware,
 );
 
 ReactDOM.render(
-	<Provider store={ store }>
+	<Provider store={store}>
 		<BrowserRouter>
 			<App>
 				<Route path="/" exact component={Home} />
 				<Route path="/cities" exact component={CityList} />
-				<Route path='/cities/:id' exact component={CityPage} />
-				<Route path="/signup" exact component={Signup} />
+				<Route path="/cities/:id" exact component={CityPage} />
+				<Route path="/signup" exact component={SignUp} />
 				<Route path="/login" exact component={Login} />
 				<Route path="/logout" exact component={Logout} />
 			</App>
 		</BrowserRouter>
 	</Provider>,
-	document.querySelector('#root')
+	document.querySelector('#root'),
 );

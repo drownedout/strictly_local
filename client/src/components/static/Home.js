@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 class Home extends Component {
-	render(){
+	render() {
 		return (
 			<section className="home">
 				<div className="home-banner">
@@ -11,14 +11,14 @@ class Home extends Component {
 						<h1 className="home-title">Strictly Local</h1>
 						<p className="home-subtitle">Live like a local</p>
 						<div className="home-button-row">
-							<a className="btn primary">Explore</a>
-							<a className="btn secondary">Sign Up</a>
+							<Link to="/cities" className="btn primary">Explore</Link>
+							<Link to="/signup" className="btn secondary">Sign Up</Link>
 						</div>
 					</div>
 				</div>
 				<h1 className="home-welcome">Welcome Home</h1>
 			</section>
-		)
+		);
 	}
 }
 

@@ -5,17 +5,17 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions';
 
 class SignUp extends Component {
+	onSubmit = (formProps) => {
+		const { signup, history } = this.props;
 
-	// Arrow function so that we don't need to bind
-	onSubmit = formProps => {
-		this.props.signup(formProps, () => {
-			this.props.history.push('/')
+		signup(formProps, () => {
+			history.push('/');
 		});
 	};
 
-	render(){
+	render() {
 		// handleSubmit is provided by reduxForm
-		const { handleSubmit } = this.props;
+		const { handleSubmit, errorMessage } = this.props;
 
 		return (
 			<div className="form-container">
@@ -61,19 +61,20 @@ class SignUp extends Component {
 							component="input"
 						/>
 					</fieldset>
-					<div className="form-error">{this.props.errorMessage}</div>
-					<button className="btn primary">Sign Up</button>
+					<div className="form-error">{errorMessage}</div>
+					<button type="submit" className="btn primary">Sign Up</button>
 				</form>
 			</div>
 		);
 	}
 }
 
-function mapStateToProps(state){
-	return { errorMessage: state.authentication.errorMessage };
+function mapStateToProps({ authentication }) {
+	const { errorMessage } = authentication;
+	return { errorMessage };
 }
 
 export default compose(
 	connect(mapStateToProps, actions),
-	reduxForm({ form: 'signup' })
+	reduxForm({ form: 'signup' }),
 )(SignUp);
