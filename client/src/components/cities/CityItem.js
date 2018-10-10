@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
@@ -13,6 +14,10 @@ class CityItem extends Component {
 		);
 	}
 }
+
+CityItem.propTypes = {
+	city: PropTypes.object,
+};
 
 function mapStateToProps(state, { city }) {
 	return {

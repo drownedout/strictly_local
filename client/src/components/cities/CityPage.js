@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { receiveCity } from '../../actions/cities';
 
@@ -52,6 +53,14 @@ class CityPage extends Component {
 		);
 	}
 }
+
+CityPage.propTypes = {
+	id: PropTypes.string,
+	city: PropTypes.object,
+	loading: PropTypes.bool,
+	dispatch: PropTypes.func,
+};
+
 
 function mapStateToProps({ cities }, props) {
 	const { id } = props.match.params;

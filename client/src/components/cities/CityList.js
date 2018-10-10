@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import _ from 'lodash';
 import LoadingBar from 'react-redux-loading';
 import CityItem from './CityItem';
@@ -36,6 +37,12 @@ class CityList extends Component {
 		);
 	}
 }
+
+CityList.propTypes = {
+	cities: PropTypes.object,
+	loading: PropTypes.bool,
+	dispatch: PropTypes.func,
+};
 
 function mapStateToProps({ cities }) {
 	return {
