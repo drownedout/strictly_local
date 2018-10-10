@@ -1,11 +1,11 @@
 import axios from 'axios';
 import { AUTH_USER, AUTH_ERROR } from './types';
 
-export const signup = (formProps, callback) => async dispatch => {
+export const signup = (formProps, callback) => async (dispatch) => {
 	try {
 		const response = await axios.post(
-			'http://localhost:4000/signup', 
-			formProps
+			'http://localhost:4000/signup',
+			formProps,
 		);
 
 		dispatch({ type: AUTH_USER, payload: response.data.token });
@@ -20,11 +20,11 @@ export const signup = (formProps, callback) => async dispatch => {
 	}
 };
 
-export const login = (formProps, callback) => async dispatch => {
+export const login = (formProps, callback) => async (dispatch) => {
 	try {
 		const response = await axios.post(
-			'http://localhost:4000/login', 
-			formProps
+			'http://localhost:4000/login',
+			formProps,
 		);
 
 		dispatch({ type: AUTH_USER, payload: response.data.token });
@@ -44,6 +44,6 @@ export const logout = () => {
 
 	return {
 		type: AUTH_USER,
-		payload: ''
+		payload: '',
 	};
 };

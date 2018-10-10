@@ -1,35 +1,41 @@
 import axios from 'axios';
 import { RECEIVE_CITIES, RECEIVE_CITY } from './types';
 
-
-export function receiveCities(){
-	return function(dispatch){
+export function receiveCities() {
+	return function (dispatch) {
 		axios({
 			url: 'http://localhost:4000/cities',
 			method: 'get',
-			responseType: 'json'})
-			.then(cities => {
+			responseType: 'json',
+		})
+			.then((cities) => {
 				dispatch({
 					type: RECEIVE_CITIES,
-					cities: cities.data
-				})
+					cities: cities.data,
+				});
 			})
-	}
+			.catch((error) => {
+				throw error;
+			});
+	};
 }
 
 
-export function receiveCity(id){
-	return function(dispatch){
+export function receiveCity(id) {
+	return function (dispatch) {
 		axios({
 			url: `http://localhost:4000/cities/${id}`,
 			method: 'get',
-			responseType: 'json'})
-			.then(city => {
+			responseType: 'json',
+		})
+			.then((city) => {
 				dispatch({
 					type: RECEIVE_CITY,
-					city: city.data
-				})
+					city: city.data,
+				});
 			})
-
-	}
+			.catch((error) => {
+				throw error;
+			});
+	};
 }
