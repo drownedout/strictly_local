@@ -8,6 +8,7 @@ const cors = require('cors');
 const multer  = require('multer');
 const upload = multer({ dest: 'uploads/' });
 const keys = require('./config/keys');
+const cloudinary = require('cloudinary');
 
 const app = express();
 const router = require('./routes/index');
@@ -19,6 +20,13 @@ const router = require('./routes/index');
 		Update cors
 
 **/
+
+// Cloudinary API setup
+cloudinary.config({
+    cloud_name: keys.CLOUDINARY_NAME,
+    api_key: keys.CLOUDINARY_API_KEY,
+    api_secret: keys.CLOUDINARY_API_SECRET,
+});
 
 // DB Setup
 mongoose.connect(keys.mongoDev, (error) => {
@@ -39,7 +47,10 @@ app.use(morgan('combined'));
 app.use(cors());
 
 // To parse requests into JSON
-app.use(bodyParser.json({type: '*/*'}));
+app.use(bodyParser.json({
+	type: '*/*',
+    limit: '5mb'
+}));
 
 router(app);
 

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
+import FileUpload from '../helper/fileUpload';
 import * as actions from '../../actions';
 
 class SignUp extends Component {
@@ -60,6 +61,10 @@ class SignUp extends Component {
 							type="password"
 							component="input"
 						/>
+					</fieldset>
+					<fieldset>
+						<label>Profile Picture</label>
+						<Field component={FileUpload} name='profilePicture' accept='.jpg' />
 					</fieldset>
 					<div className="form-error">{errorMessage}</div>
 					<button type="submit" className="btn primary">Sign Up</button>

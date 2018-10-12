@@ -46,9 +46,8 @@ const UserSchema = new Schema({
 		required: [true, 'You must provide a password']
 	},
 	profilePicture: {
-		date: Buffer,
-		type: String
-	}
+		type: String,
+	},
 }, {
 	timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }
 });

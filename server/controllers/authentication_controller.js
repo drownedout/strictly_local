@@ -1,6 +1,8 @@
 const jwt = require('jwt-simple');
 const User = require('../models/User');
 const keys = require('../config/keys');
+const fs = require('fs');
+const cloudinary = require('cloudinary');
 
 
 // Generates JWT for user
@@ -18,7 +20,7 @@ exports.signup = function(req,res,next){
 	const lastName = req.body.lastName;
 	const email = req.body.email;
 	const password = req.body.password;
-
+	const imageFile = req.body.profilePicture;
 	/** 
 
 		Todo
@@ -42,21 +44,50 @@ exports.signup = function(req,res,next){
 		}
 
 		// If a user with email does not exist, create and save user record
-		const user = new User({
-			username,
-			firstName,
-			lastName,
-			email,
-			password
-		});
+		if (imageFile) {
+			cloudinary.uploader.upload(imageFile, (result) => {
+				const user = new User({ 
+					username, 
+					firstName, 
+					lastName, 
+					email,
+					password,
+					profilePicture: result.url != null ? result.url : '' 
+				})
+				user.save(function(err){
+					// Error handling
+					if (err){ return next(err); }
 
-		user.save(function(err){
-			// Error handling
-			if (err){ return next(err); }
+					// Respond to request indicating the user was created
+					res.json({ 
+						user,
+						token: userToken(user)
+					});
+				});
+			}, {
+				resource_type: 'image',
+			})
+		} else {
+				const user = new User({
+					username,
+					firstName,
+					lastName,
+					email,
+					password,
+					profilePicture: '',
+				}); 
+				user.save(function(err){
 
-			// Respond to request indicating the user was created
-			res.json({ token: userToken(user) });
-		});
+				// Error handling
+				if (err){ return next(err); }
+
+				// Respond to request indicating the user was created
+				res.json({
+					user,
+					token: userToken(user)
+				});
+			});
+		}
 	});
 }
 

@@ -1,1 +1,4 @@
+server/config/keys.js
+server/config/dev.js
+server/config/prod.js
 .DS_Store

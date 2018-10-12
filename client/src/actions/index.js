@@ -8,7 +8,7 @@ export const signup = (formProps, callback) => async (dispatch) => {
 			formProps,
 		);
 
-		dispatch({ type: AUTH_USER, payload: response.data.token });
+		dispatch({ type: AUTH_USER, payload: response.data });
 
 		// Store token into browser's local storage
 		localStorage.setItem('token', response.data.token);
