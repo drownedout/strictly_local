@@ -2,7 +2,7 @@ import axios from 'axios';
 import { RECEIVE_CITIES, RECEIVE_CITY } from './types';
 
 export function receiveCities() {
-	return function (dispatch) {
+	return function(dispatch) {
 		axios({
 			url: 'http://localhost:4000/cities',
 			method: 'get',
@@ -22,7 +22,7 @@ export function receiveCities() {
 
 
 export function receiveCity(id) {
-	return function (dispatch) {
+	return function(dispatch) {
 		axios({
 			url: `http://localhost:4000/cities/${id}`,
 			method: 'get',

@@ -24,22 +24,14 @@ class CityPage extends Component {
 						<h3 className="city-state">California</h3>
 					</div>
 				</div>
+
 				<div className="city-page-container">
 					<div className="city-detail-main">
-						<h2 className="city-about-title">About {city.name}, California</h2>
+						<h2 className="city-about-title">
+							About {city.name}, California
+						</h2>
 						<p className="city-description">
-						Lorem ipsum dolor sit amet, consectetur
-						adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-						magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-						laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in
-						reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla qui officia
-						deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste
-						natus error sit voluptatem accusantium doloremque laudantium, totam
-						rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-						architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
-						voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed
-						quia consequuntur magni dolores eos qui ratione voluptatem
-						sequi nesciunt
+							{city.description}
 						</p>
 					</div>
 					<div className="city-detail-aside">

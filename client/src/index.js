@@ -2,8 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
-import reduxThunk from 'redux-thunk';
+import { createStore } from 'redux';
 import middleware from './middleware';
 
 import App from './components/App';
@@ -11,7 +10,7 @@ import Login from './components/authentication/Login';
 import Logout from './components/authentication/Logout';
 import CityList from './components/cities/CityList';
 import CityPage from './components/cities/CityPage';
-import SignUp from './components/authentication/Signup';
+import SignUp from './components/authentication/SignUp';
 import Home from './components/static/Home';
 
 import reducers from './reducers';
@@ -19,7 +18,9 @@ import reducers from './reducers';
 const store = createStore(
 	reducers,
 	{
-		authentication: { authenticated: localStorage.getItem('token') },
+		authentication: {
+			authenticated: localStorage.getItem('token')
+		},
 	},
 	middleware,
 );

@@ -8,8 +8,14 @@ class CityItem extends Component {
 		const { city, id } = this.props;
 		return (
 			<div className="city-item-information">
-				<h3 className="city-name"><Link to={`/cities/${id}`}>{city.name}</Link></h3>
-				<p className="city-description">{city.description}</p>
+				<h3 className="city-name">
+					<Link to={`/cities/${id}`}>
+						{city.name}
+					</Link>
+				</h3>
+				<p className="city-description">
+					{city.description}
+				</p>
 			</div>
 		);
 	}

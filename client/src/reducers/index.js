@@ -9,5 +9,5 @@ export default combineReducers({
 	authentication,
 	cities,
 	form: formReducer,
-	loadingBar: loadingBarReducer
+	loadingBar: loadingBarReducer,
 });
