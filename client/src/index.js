@@ -8,8 +8,8 @@ import middleware from './middleware';
 import App from './components/App';
 import Login from './components/authentication/Login';
 import Logout from './components/authentication/Logout';
-import CityList from './components/cities/CityList';
-import CityPage from './components/cities/CityPage';
+import CityIndex from './pages/City/CityIndex';
+import CityItem from './components/cities/CityItem';
 import SignUp from './components/authentication/SignUp';
 import Home from './components/static/Home';
 
@@ -30,8 +30,8 @@ ReactDOM.render(
 		<BrowserRouter>
 			<App>
 				<Route path="/" exact component={Home} />
-				<Route path="/cities" exact component={CityList} />
-				<Route path="/cities/:id" exact component={CityPage} />
+				<Route path="/cities" exact component={CityIndex} />
+				<Route path="/cities/:id" exact component={CityItem} />
 				<Route path="/signup" exact component={SignUp} />
 				<Route path="/login" exact component={Login} />
 				<Route path="/logout" exact component={Logout} />

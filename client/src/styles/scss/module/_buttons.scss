@@ -4,6 +4,7 @@
 	text-align: center;
 	box-sizing: border-box;
 	cursor: pointer;
+	font-weight: 600;
 	text-decoration: none;
 	padding: 1rem 3rem;
 	letter-spacing: .15rem;
@@ -30,6 +31,11 @@
 		&:hover {
 			color: darken($white, 5%);
 		}
+	}
+	&.inverse {
+		color: $blue;
+		border: 1px solid darken($blue, 5%);
+		background-color: transparent;
 	}
 	&:hover {
 		transform: translateY(-1px);

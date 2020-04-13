@@ -11,6 +11,7 @@ class CityPage extends Component {
 
 	render() {
 		const { city } = this.props;
+		const { name, description } = city;
 
 		if (!city) {
 			return <div> Loading... </div>;
@@ -20,7 +21,7 @@ class CityPage extends Component {
 			<div className="city-page">
 				<div className="city-banner">
 					<div className="city-banner-content">
-						<h1 className="city-name">{city.name}</h1>
+						<h1 className="city-name">{name}</h1>
 						<h3 className="city-state">California</h3>
 					</div>
 				</div>
@@ -28,10 +29,10 @@ class CityPage extends Component {
 				<div className="city-page-container">
 					<div className="city-detail-main">
 						<h2 className="city-about-title">
-							About {city.name}, California
+							About {name}, California
 						</h2>
 						<p className="city-description">
-							{city.description}
+							{description}
 						</p>
 					</div>
 					<div className="city-detail-aside">

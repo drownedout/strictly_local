@@ -1,5 +1,6 @@
 .home {
 	position: relative;
+	background-color: $background;
 	.home-banner {
 		@include banner('https://wallpaper.wiki/wp-content/uploads/2017/04/wallpaper.wiki-Free-Travel-Backgrounds-Download-HD-PIC-WPD004681.jpg');
 		.home-banner-content {
@@ -51,9 +52,10 @@
 		}
 	}
 	.home-welcome {
-		font-weight: 300;
+		font-weight: 700;
 		text-align: center;
 		padding-bottom: 1.5rem;
+		position: relative;
 		@include underline($red);
 	}
 }

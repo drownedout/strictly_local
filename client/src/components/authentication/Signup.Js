@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import FileUpload from '../helper/fileUpload';
 import * as actions from '../../actions';
 
@@ -64,7 +65,7 @@ class SignUp extends Component {
 					</fieldset>
 					<fieldset>
 						<label>Profile Picture</label>
-						<Field component={FileUpload} name='profilePicture' accept='.jpg' />
+						<Field component={FileUpload} name="profilePicture" accept=".jpg" />
 					</fieldset>
 					<div className="form-error">{errorMessage}</div>
 					<button type="submit" className="btn primary">Sign Up</button>
@@ -73,6 +74,20 @@ class SignUp extends Component {
 		);
 	}
 }
+
+SignUp.defaultProps = {
+	signup: null,
+	history: {},
+	handleSubmit: null,
+	errorMessage: '',
+};
+
+SignUp.propTypes = {
+	signup: PropTypes.func,
+	history: PropTypes.shape,
+	handleSubmit: PropTypes.func,
+	errorMessage: PropTypes.string,
+};
 
 function mapStateToProps({ authentication }) {
 	const { errorMessage } = authentication;

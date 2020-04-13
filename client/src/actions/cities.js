@@ -22,13 +22,13 @@ export function receiveCities() {
 
 
 export function receiveCity(id) {
-	return function(dispatch) {
+	return function (dispatch) {
 		axios({
 			url: `http://localhost:4000/cities/${id}`,
 			method: 'get',
 			responseType: 'json',
 		})
-			.then((city) => {
+		.then((city) => {
 				dispatch({
 					type: RECEIVE_CITY,
 					city: city.data,
