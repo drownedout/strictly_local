@@ -1,10 +1,11 @@
 const City = require('../models/City');
+const Event = require('../models/Event');
 
 module.exports = {
 
 	/** CREATE **/
 	create(req, res, next){
-		const cityProps = req.body; 
+		const cityProps = req.body;
 
 		City.create(cityProps)
 			.then(city => res.send(city))
@@ -34,7 +35,10 @@ module.exports = {
 		const cityID = req.params.id;
 
 		City.findById({ _id: cityID })
-			.then(city => res.send(city))
+			.then(city => {
+				return Event.find({_city: cityID})
+					.then(events => res.send({city, events}))
+			})
 			.catch(next);
 	},
 

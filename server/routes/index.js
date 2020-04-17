@@ -2,6 +2,7 @@ const Authentication = require('../controllers/authentication_controller');
 const passportService = require('../services/passport');
 const passport = require('passport');
 const CitiesController = require('../controllers/city_controller');
+const EventsController = require('../controllers/event_controller');
 
 
 // When a user is authenticated, do not try to create a session for them
@@ -21,4 +22,11 @@ module.exports = function(app){
 	app.put('/cities/:id', CitiesController.update);
 	app.get('/cities/:id', CitiesController.show);
 	app.delete('/cities/:id', CitiesController.destroy);
+
+	/** Events **/
+	app.post('/events', EventsController.create);
+	app.get('/events', EventsController.index);
+	app.put('/events/:id', EventsController.update);
+	app.get('/events/:id', EventsController.show);
+	app.delete('/events/:id', EventsController.destroy);
 }
