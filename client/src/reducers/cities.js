@@ -8,7 +8,7 @@ export default function cities(state = {}, action) {
 	case RECEIVE_CITY:
 		return {
 			...state,
-			[action.city._id]: action.city,
+			[action.city._id]: { ...action.city, events: action.events },
 		};
 	default:
 		return state;
