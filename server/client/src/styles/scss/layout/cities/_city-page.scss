@@ -2,7 +2,7 @@
 	.city-banner {
 		@include banner('https://wallpapers.pub/web/wallpapers/united-states-new-jersey-union-city/4096x2160.jpg');
 		position: relative;
-		z-index: 5;
+		z-index: 3;
 		.city-banner-content {
 			@include banner-content();
 			.city-name, .city-state {

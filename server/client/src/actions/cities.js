@@ -23,7 +23,11 @@ export const receiveCity = id => async (dispatch) => {
 			responseType: 'json',
 		});
 
-		dispatch({ type: RECEIVE_CITY, data: response.data });
+		dispatch({
+			type: RECEIVE_CITY,
+			city: response.data.city,
+			events: response.data.events,
+		});
 	} catch (error) {
 		throw error;
 	}

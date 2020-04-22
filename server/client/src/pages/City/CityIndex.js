@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import CityList from '../../components/cities/CityList';
 
 function CityIndex() {

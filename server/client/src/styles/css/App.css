@@ -213,6 +213,49 @@ td, th {
     .navbar .nav-wrapper a:hover {
       opacity: .7; }
 
+.menu-row {
+  margin: 3rem auto;
+  width: 85%;
+  position: relative;
+  z-index: 5;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 3rem; }
+  .menu-row .menu {
+    list-style: none;
+    padding: 0;
+    margin: 0; }
+    .menu-row .menu li {
+      display: inline-block;
+      font-family: 'Poppins';
+      font-weight: 500;
+      margin: 0 .75rem;
+      position: relative;
+      transition: .3s ease-in-out; }
+      .menu-row .menu li:after {
+        position: absolute;
+        transition: .3s ease-in-out;
+        bottom: -5px;
+        left: 0;
+        content: "";
+        background-color: #2CC7D5;
+        width: 0%;
+        height: 4px;
+        transform-origin: center center; }
+      .menu-row .menu li:first-child {
+        margin-left: 0; }
+      .menu-row .menu li:last-child {
+        margin-right: 0; }
+      .menu-row .menu li:hover {
+        color: #2CC7D5;
+        cursor: pointer; }
+        .menu-row .menu li:hover:after {
+          width: 100%; }
+      .menu-row .menu li.active {
+        color: #2CC7D5; }
+        .menu-row .menu li.active:after {
+          width: 100%; }
+
 .home {
   position: relative;
   background-color: #f4f4f4; }
@@ -365,7 +408,7 @@ td, th {
   box-shadow: inset 10px 10px 229px -17px rgba(0, 0, 0, 0.5);
   margin-bottom: 3rem;
   position: relative;
-  z-index: 5; }
+  z-index: 3; }
   .city-page .city-banner:after {
     display: block;
     content: "";

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -36,6 +37,14 @@ class Navbar extends Component {
 		);
 	}
 }
+
+Navbar.defaultProps = {
+	authenticated: null,
+};
+
+Navbar.propTypes = {
+	authenticated: PropTypes.string,
+};
 
 function mapStateToProps({ authentication }) {
 	const { authenticated } = authentication;
