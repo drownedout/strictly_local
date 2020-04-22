@@ -19,32 +19,27 @@ export default class FileUpload extends Component {
   	const targetFile = e.target.files[0];
 
   	if (targetFile) {
-      const val = await this.getBase64(targetFile);
-      input.onChange(val);
+  		const val = await this.getBase64(targetFile);
+  		input.onChange(val);
   	} else {
-      input.onChange(null);
+  		input.onChange(null);
   	}
   }
 
   render() {
-  	const {
-  		input: { value },
-  		input,
-      label,
-      required,
-      meta } = this.props;
+  	const { input, label } = this.props;
 
   	return (
-			<div>
-				<label>{label}</label>
-				<div>
-					<input
-						type="file"
-						accept=".jpg, .png, .jpeg"
-						onChange={this.onChange}
-					/>
-				</div>
-  		</div>
-		);
+	<div>
+		<label>{label}</label>
+		<div>
+			<input
+				type="file"
+				accept=".jpg, .png, .jpeg"
+				onChange={this.onChange}
+			/>
+		</div>
+	</div>
+  	);
   }
 }

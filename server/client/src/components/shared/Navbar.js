@@ -10,7 +10,7 @@ class Navbar extends Component {
 			return (
 				<div className="nav-wrapper">
 					<Link to="/cities">Explore</Link>
-					<Link to="/protected">Protected Route</Link>
+					<Link to="/profile">My Profile</Link>
 					<Link to="/logout">Logout</Link>
 				</div>
 			);

@@ -3,3 +3,5 @@ export const AUTH_ERROR = 'AUTH_ERROR';
 
 export const RECEIVE_CITIES = 'RECEIVE_CITIES';
 export const RECEIVE_CITY = 'RECEIVE_CITY';
+
+export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';

@@ -12,6 +12,9 @@ import CityIndex from './pages/City/CityIndex';
 import CityItem from './components/cities/CityItem';
 import SignUp from './components/authentication/SignUp';
 import Home from './components/static/Home';
+import Profile from './components/profile/Profile';
+
+import RequireAuthentication from './components/helpers/requireAuthentication';
 
 import reducers from './reducers';
 
@@ -19,7 +22,7 @@ const store = createStore(
 	reducers,
 	{
 		authentication: {
-			authenticated: localStorage.getItem('token')
+			authenticated: localStorage.getItem('token'),
 		},
 	},
 	middleware,
@@ -33,6 +36,7 @@ ReactDOM.render(
 				<Route path="/cities" exact component={CityIndex} />
 				<Route path="/cities/:id" exact component={CityItem} />
 				<Route path="/signup" exact component={SignUp} />
+				<Route path="/profile" exact component={RequireAuthentication(Profile)} />
 				<Route path="/login" exact component={Login} />
 				<Route path="/logout" exact component={Logout} />
 			</App>
