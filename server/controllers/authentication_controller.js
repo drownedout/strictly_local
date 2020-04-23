@@ -1,5 +1,6 @@
 const jwt = require('jwt-simple');
 const User = require('../models/User');
+const UserValidation = require('../models/UserValidation');
 const keys = require('../config/keys');
 const fs = require('fs');
 const cloudinary = require('cloudinary');
@@ -21,11 +22,11 @@ exports.signup = function(req,res,next){
 	const email = req.body.email;
 	const password = req.body.password;
 	const imageFile = req.body.profilePicture;
-	/** 
+	/**
 
 		Todo
 			- Add further checks for email, password
-		
+
 	**/
 
 	// Checks existence of password and email
@@ -46,20 +47,20 @@ exports.signup = function(req,res,next){
 		// If a user with email does not exist, create and save user record
 		if (imageFile) {
 			cloudinary.uploader.upload(imageFile, (result) => {
-				const user = new User({ 
-					username, 
-					firstName, 
-					lastName, 
+				const user = new User({
+					username,
+					firstName,
+					lastName,
 					email,
 					password,
-					profilePicture: result.url != null ? result.url : '' 
+					profilePicture: result.url != null ? result.url : ''
 				})
 				user.save(function(err){
 					// Error handling
 					if (err){ return next(err); }
 
 					// Respond to request indicating the user was created
-					res.json({ 
+					res.json({
 						user,
 						token: userToken(user)
 					});
@@ -75,13 +76,17 @@ exports.signup = function(req,res,next){
 					email,
 					password,
 					profilePicture: '',
-				}); 
+				});
 				user.save(function(err){
 
 				// Error handling
 				if (err){ return next(err); }
 
 				// Respond to request indicating the user was created
+
+				/********
+					CHANGE THIS TO MAILER AUTHENICATION
+				********/
 				res.json({
 					user,
 					token: userToken(user)
@@ -96,4 +101,36 @@ exports.login = function(req, res, next){
 	// They just need to receive a token
 
 	res.send({ token: userToken(req.user) });
+}
+
+exports.validateUser = function (req, res, next) {
+	UserValidation.findOne({ id }, function(err, validation){
+		if(err){ return next(err); }
+
+		if(!validation) {
+			res.status(422).send(
+				{ error: 'Validation token has expired. Please request another one.'}
+			)
+		}
+	});
+
+	// See if a user with a given email exists
+	User.findOne({ email }, function(err, user){
+		// Error handling
+		if (err){ return next(err); }
+
+		// If a user with email does exist, return an error
+		if (!user){
+			res.status(422).send({ error: 'Email doesn\'t exist'} );
+		} else {
+			const userID = user.id;
+
+			User.findByIdAndUpdate({ _id: userID }, { active: true })
+				.then(() => User.findByIdAndUpdate({ _id: userID }))
+				.then(user => res.status(200).send({
+					success: 'You account has been validated.'
+				}))
+				.catch(next);
+		}
+	});
 }

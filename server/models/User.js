@@ -30,12 +30,12 @@ const UserSchema = new Schema({
 		},
 		required: [true, 'You must enter your last name']
 	},
-	email: { 
+	email: {
 		type: String,
 		required: [true, 'You must provide an email'],
 		unique: [true, 'That email is already in use'],
 		lowercase: true,
-		match: [/.+\@.+\..+/, 'You must provide a valid email'] 
+		match: [/.+\@.+\..+/, 'You must provide a valid email']
 	},
 	password: {
 		type: String,
@@ -48,6 +48,10 @@ const UserSchema = new Schema({
 	profilePicture: {
 		type: String,
 	},
+	active: {
+		type: Boolean,
+		default: false
+	}
 }, {
 	timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }
 });
