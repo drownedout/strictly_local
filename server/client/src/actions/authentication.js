@@ -8,7 +8,7 @@ export const signup = (formProps, callback) => async (dispatch) => {
 			formProps,
 		);
 
-		dispatch({ type: AUTH_USER, payload: response.data });
+		dispatch({ type: AUTH_USER, token: response.data.token });
 
 		// Store token into browser's local storage
 		localStorage.setItem('token', response.data.token);
@@ -26,8 +26,7 @@ export const login = (formProps, callback) => async (dispatch) => {
 			'http://localhost:4000/login',
 			formProps,
 		);
-
-		dispatch({ type: AUTH_USER, payload: response.data.token });
+		dispatch({ type: AUTH_USER, token: response.data.token });
 
 		// Store token into browser's local storage
 		localStorage.setItem('token', response.data.token);

@@ -3,7 +3,7 @@ import { reduxForm, Field } from 'redux-form';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
-import * as actions from '../../actions';
+import * as actions from '../../actions/authentication';
 
 
 class Login extends Component {
@@ -57,19 +57,19 @@ class Login extends Component {
 }
 
 Login.defaultProps = {
-	login: null,
 	history: {},
 	authenticated: '',
 	handleSubmit: null,
 	errorMessage: '',
+	login: null,
 };
 
 Login.propTypes = {
-	login: PropTypes.func,
 	history: PropTypes.shape,
 	handleSubmit: PropTypes.func,
 	authenticated: PropTypes.string,
 	errorMessage: PropTypes.string,
+	login: PropTypes.func,
 };
 
 function mapStateToProps({ authentication }) {

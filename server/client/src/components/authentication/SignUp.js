@@ -3,8 +3,8 @@ import { reduxForm, Field } from 'redux-form';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import FileUpload from '../helper/fileUpload';
-import * as actions from '../../actions';
+import FileUpload from '../helpers/fileUpload';
+import * as actions from '../../actions/authentication';
 
 class SignUp extends Component {
 	onSubmit = (formProps) => {

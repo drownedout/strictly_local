@@ -11,7 +11,6 @@ export default function (state = INITIAL_STATE, action) {
 		return {
 			...state,
 			authenticated: action.token,
-			currentUser: action.user,
 		};
 	case AUTH_ERROR:
 		return { ...state, errorMessage: action.payload };
