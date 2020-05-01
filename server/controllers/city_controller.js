@@ -1,54 +1,19 @@
+const modelController = require('./model_controller');
 const City = require('../models/City');
 const Event = require('../models/Event');
 
-module.exports = {
+const city_controller = new modelController(City);
 
-	/** CREATE **/
-	create(req, res, next){
-		const cityProps = req.body;
+/** Updating SHOW to return events as well **/
+city_controller.show = function(req, res, next){
+	const cityID = req.params.id;
+	console.log(City);
+	City.findById({ _id: cityID })
+		.then(city => {
+			return Event.find({_city: cityID})
+				.then(events => res.send({city, events}))
+		})
+		.catch(next);
+},
 
-		City.create(cityProps)
-			.then(city => res.send(city))
-			.catch(next);
-	},
-
-	/** INDEX **/
-	index(req, res, next){
-		City.find()
-			.then(cities => res.send(cities))
-			.catch(next);
-	},
-
-	/** UPDATE **/
-	update(req, res, next){
-		const cityID = req.params.id;
-		const cityProps = req.body;
-
-		City.findByIdAndUpdate({ _id: cityID }, cityProps)
-			.then(() => City.findByIdAndUpdate({ _id: cityID }))
-			.then(city => res.send(city))
-			.catch(next);
-	},
-
-	/** SHOW **/
-	show(req, res, next){
-		const cityID = req.params.id;
-
-		City.findById({ _id: cityID })
-			.then(city => {
-				return Event.find({_city: cityID})
-					.then(events => res.send({city, events}))
-			})
-			.catch(next);
-	},
-
-	/** DESTROY **/
-	destroy(req, res, next){
-		const cityID = req.params.id;
-
-		City.findByIdAndRemove({ _id: cityID })
-			.then(city => res.status(204).send(city))
-			.catch(next);
-
-	}
-}
+module.exports = city_controller;

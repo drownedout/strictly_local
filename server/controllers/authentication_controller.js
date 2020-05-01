@@ -87,10 +87,15 @@ exports.signup = function(req,res,next){
 				/********
 					CHANGE THIS TO MAILER AUTHENICATION
 				********/
-				res.json({
-					user,
-					token: userToken(user)
-				});
+
+				const validation = new UserValidation();
+
+				validation.save(function(err){
+					if (err){ return next(err); }
+					res.json({
+						validation
+					});
+				})
 			});
 		}
 	});
@@ -104,33 +109,36 @@ exports.login = function(req, res, next){
 }
 
 exports.validateUser = function (req, res, next) {
-	UserValidation.findOne({ id }, function(err, validation){
-		if(err){ return next(err); }
+	const id = req.query.id;
+	const email = req.query.email;
 
+	UserValidation.findById({ _id: id }, function(err, validation){
+		if(err){ return next(err); }
 		if(!validation) {
 			res.status(422).send(
 				{ error: 'Validation token has expired. Please request another one.'}
 			)
-		}
-	});
-
-	// See if a user with a given email exists
-	User.findOne({ email }, function(err, user){
-		// Error handling
-		if (err){ return next(err); }
-
-		// If a user with email does exist, return an error
-		if (!user){
-			res.status(422).send({ error: 'Email doesn\'t exist'} );
 		} else {
-			const userID = user.id;
+			// See if a user with a given email exists
+			User.findOne({ email }, function(err, user){
+				// Error handling
+				if (err){ return next(err); }
 
-			User.findByIdAndUpdate({ _id: userID }, { active: true })
-				.then(() => User.findByIdAndUpdate({ _id: userID }))
-				.then(user => res.status(200).send({
-					success: 'You account has been validated.'
-				}))
-				.catch(next);
+				// If a user with email does exist, return an error
+				if (!user){
+					res.status(422).send({ error: 'Email doesn\'t exist'} );
+				} else {
+					const userID = user.id;
+
+					User.findByIdAndUpdate({ _id: userID }, { active: true })
+						.then(() => User.findByIdAndUpdate({ _id: userID }))
+						.then(user => res.status(200).send({
+							success: 'Your account has been validated.'
+						}))
+						.catch(next);
+				}
+			});
 		}
 	});
+
 }

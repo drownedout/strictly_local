@@ -4,6 +4,7 @@ const passport = require('passport');
 const CitiesController = require('../controllers/city_controller');
 const EventsController = require('../controllers/event_controller');
 const UsersController = require('../controllers/user_controller');
+const ActivityController = require('../controllers/activity_controller');
 
 
 // When a user is authenticated, do not try to create a session for them
@@ -16,6 +17,7 @@ module.exports = function(app){
 	});
 	app.post('/login',requireLogin, Authentication.login);
 	app.post('/signup', Authentication.signup);
+	app.get('/validate', Authentication.validateUser)
 
 	/** Cities **/
 	app.post('/cities', CitiesController.create);
@@ -33,4 +35,9 @@ module.exports = function(app){
 
 	/** Users **/
 	app.get('/profile', UsersController.profile);
+	app.get('/users', UsersController.index);
+
+	/** Activities **/
+	app.post('/activities', ActivityController.create);
+	app.get('/activities', ActivityController.index);
 }

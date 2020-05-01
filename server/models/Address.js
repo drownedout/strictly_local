@@ -1,16 +1,18 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-const CitySchema = new Schema({
-	name: {
+const AddressSchema = new Schema({
+	street: {
 		type: String,
 		required: true
 	},
-	description: String,
+  city: String,
+  state: String,
+	zipCode: String,
 }, {
 	timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }
 });
 
-const City = mongoose.model('city', CitySchema);
+const Address = mongoose.model('address', AddressSchema);
 
-module.exports = City;
+module.exports = Address;
